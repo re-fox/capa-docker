@@ -11,7 +11,7 @@ docker build -t capa .
 # Running
 Using a shared volume
 ```
-podman run -it --rm -v <path of local dir>:/tmp capa /tmp/calc.exe
+docker run -it --rm -v <path of local dir>:/tmp capa /tmp/calc.exe
 ```
 
 Will show the following
@@ -41,5 +41,5 @@ Will show the following
 
 Under Fedora (or system with SELinux)
 ```
-podman run -it --rm --security-opt label=disable -v <path of local dir>:/tmp capa /tmp/calc.exe
+docker run -it --rm --security-opt label=disable -v <path of local dir>:/tmp capa /tmp/calc.exe
 ```
