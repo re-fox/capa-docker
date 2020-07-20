@@ -1,10 +1,10 @@
-# Capa Dockerfile
+# Capa Docker
 
-Fireeye has published CAPA (https://github.com/fireeye/capa), this is just a minimal dockerfile to build and run.
+Fireeye has published CAPA (https://github.com/fireeye/capa), this is a minimal dockerfile to build and run.
 
 # Build
 ```
-cd capa-dockerfile
+cd capa-docker
 docker build -t capa .
 ```
 
