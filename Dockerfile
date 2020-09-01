@@ -7,9 +7,9 @@ RUN apt-get update \
 RUN git config --global url."https://github.com/".insteadOf git@github.com: \ 
  && git config --global url."https://".insteadOf git://
 
-RUN pip install https://github.com/williballenthin/vivisect/zipball/master
-
 RUN git clone --recurse-submodules https://github.com/fireeye/capa.git /opt/capa
+
+RUN pip install six --upgrade
 
 RUN pip install -e /opt/capa
 
