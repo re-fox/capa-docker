@@ -1,16 +1,12 @@
-FROM ubuntu:bionic
+FROM registry.access.redhat.com/ubi8/ubi
 
-RUN apt-get update \
- && apt-get install -y python-pip \
-                       git 
+RUN dnf -y install --disableplugin=subscription-manager python3-pip git
 
 RUN git config --global url."https://github.com/".insteadOf git@github.com: \ 
- && git config --global url."https://".insteadOf git://
+ && git config --global url."https://".insteadOf git:// \
+ && git clone --recurse-submodules https://github.com/fireeye/capa.git /opt/capa
 
-RUN git clone --recurse-submodules https://github.com/fireeye/capa.git /opt/capa
-
-RUN pip install six --upgrade
-
-RUN pip install -e /opt/capa
+RUN pip3 install six --upgrade \
+ && pip3 install -e /opt/capa 
 
 ENTRYPOINT ["capa"]
